@@ -1,0 +1,5 @@
+<div class="d-flex flex-wrap justify-content-center mt-3">
+  <% @task_groups.each do |task_group| %>
+    <%= render task_group, max_length: 350, width: "23rem" %>
+  <% end %>
+</div>

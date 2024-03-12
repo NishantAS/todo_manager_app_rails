@@ -1,0 +1,26 @@
+<div class="container text-center mb-3 mt-3">
+  <%= link_to "Back to tasks", tasks_path, class: "btn btn-info" %>
+</div>
+
+<%= render @task, tt: "flex-wrap" %>
+
+		<script type="text/javascript">
+			document.querySelectorAll('.timestamps').forEach( (timestamp) => 
+			{
+					var t     = new Date(timestamp.innerHTML),
+					hours     = t.getHours(), 
+					min       = t.getMinutes() + '', 
+					pm        = false,
+					months    = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+					if(hours > 11){
+						hours = hours - 12;
+						pm = true;
+					}
+
+					if(hours == 0) hours = 12;
+					if(min.length == 1) min = '0' + min;
+
+					timestamp.innerHTML = months[t.getMonth()] + ' ' + t.getDate() + ', ' + t.getFullYear() + ' ' + hours + ':' + min + ' ' + (pm ? 'pm' : 'am');
+				});
+		</script>
